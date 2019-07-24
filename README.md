@@ -2,6 +2,9 @@
 
 Easily view AWS CloudWatch logs
 
+* https://materialdesignicons.com/
+* 
+
 ## Project setup
 
 ```bash
