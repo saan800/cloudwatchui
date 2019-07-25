@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
-      <NavigationDrawer/>
+      <NavigationDrawer />
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark dense>
@@ -81,7 +81,7 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-start justify-start>
-          <HelloWorld/>
+          <HelloWorld />
         </v-layout>
       </v-container>
     </v-content>
@@ -90,7 +90,7 @@
       <v-icon>{{ icons.add }}</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" width="800px">
-      <CreateContact/>
+      <CreateContact />
     </v-dialog>
 
     <v-footer color="primary" app>
@@ -119,6 +119,7 @@ import {
   // other
   mdiPlus
 } from '@mdi/js'
+import store from './store';
 
 export default Vue.extend({
   name: 'App',
@@ -130,8 +131,7 @@ export default Vue.extend({
   props: {},
   data: () => ({
     isLoggedIn: false, // from store
-    currentAwsRegion: 'eu-west-1', // from store
-    awsRegions: ['eu-west-1', 'eu-central-1'], // from store
+    //awsRegions: ['eu-west-1', 'eu-central-1'], // from store
     dialog: false,
     drawer: null,
     menu: false,
@@ -162,6 +162,14 @@ export default Vue.extend({
       this.$refs.form.reset()
       this.$refs.form.resetValidation()
       this.menu = false
+    }
+  },
+  computed: {
+    currentAwsRegion() {
+      return store.state.currentAwsRegion
+    },
+    awsRegions() {
+      return store.state.awsRegions
     }
   }
 })
