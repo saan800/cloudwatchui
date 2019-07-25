@@ -44,8 +44,8 @@
   </v-list>
 </template>
 
-<script lang='ts'>
-import Vue from "vue";
+<script lang="ts">
+import Vue from 'vue'
 import {
   mdiHomeVariantOutline,
   mdiHistory,
@@ -54,28 +54,28 @@ import {
   mdiApplicationImport,
   mdiApplicationExport,
   mdiSettingsOutline
-} from "@mdi/js";
+} from '@mdi/js'
 
 export default Vue.extend({
   data: () => ({
     items: [
-      { icon: mdiHomeVariantOutline, text: "Contacts" },
-      { icon: mdiHistory, text: "Frequently contacted" },
+      { icon: mdiHomeVariantOutline, text: 'Contacts' },
+      { icon: mdiHistory, text: 'Frequently contacted' },
       {
         icon: mdiChevronUp,
-        "icon-alt": mdiChevronDown,
-        text: "More",
+        'icon-alt': mdiChevronDown,
+        text: 'More',
         model: false,
         children: [
-          { icon: mdiApplicationImport, text: "Import" },
-          { icon: mdiApplicationExport, text: "Export" },
-          { text: "Print" },
-          { text: "Undo changes" },
-          { text: "Other contacts" }
+          { icon: mdiApplicationImport, text: 'Import' },
+          { icon: mdiApplicationExport, text: 'Export' },
+          { text: 'Print' },
+          { text: 'Undo changes' },
+          { text: 'Other contacts' }
         ]
       },
-      { icon: mdiSettingsOutline, text: "Settings" }
+      { icon: mdiSettingsOutline, text: 'Settings' }
     ]
   })
-});
+})
 </script>

@@ -7,7 +7,7 @@
           <v-flex xs12 align-center justify-space-between>
             <v-layout align-center>
               <v-avatar size="40px" class="mr-4">
-                <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" alt />
+                <img src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png" alt>
               </v-avatar>
               <v-text-field placeholder="Name"></v-text-field>
             </v-layout>
@@ -41,13 +41,13 @@
 
 
 <script lang='ts'>
-import Vue from "vue";
+import Vue from 'vue'
 import {
   mdiDomain,
   mdiEmailOutline,
   mdiCellphoneAndroid,
   mdiText
-} from "@mdi/js";
+} from '@mdi/js'
 
 export default Vue.extend({
   data: () => ({
@@ -58,6 +58,6 @@ export default Vue.extend({
       notes: mdiText
     }
   })
-});
+})
 </script>
 

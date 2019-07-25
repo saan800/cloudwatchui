@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
-      <NavigationDrawer />
+      <NavigationDrawer/>
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark dense>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4 hidden-sm-and-down">
-        <span class="title">CloudWatch Logs Viewer</span>
+        <span class="title">CloudWatch Logs</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-layout align-center style="max-width: 200px">
@@ -81,7 +81,7 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-start justify-start>
-          <HelloWorld />
+          <HelloWorld/>
         </v-layout>
       </v-container>
     </v-content>
@@ -90,7 +90,7 @@
       <v-icon>{{ icons.add }}</v-icon>
     </v-btn>
     <v-dialog v-model="dialog" width="800px">
-      <CreateContact />
+      <CreateContact/>
     </v-dialog>
 
     <v-footer color="primary" app>
@@ -100,10 +100,11 @@
 </template>
 
 <script lang='ts'>
-import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue";
-import NavigationDrawer from "@/components/layout/NavigationDrawer.vue";
-import CreateContact from "@/components/contacts/CreateContact.vue";
+import Vue from 'vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+import NavigationDrawer from '@/components/layout/NavigationDrawer.vue'
+import CreateContact from '@/components/contacts/CreateContact.vue'
+
 import {
   // top nav bar
   mdiMagnify,
@@ -117,10 +118,10 @@ import {
   mdiShieldLockOutline,
   // other
   mdiPlus
-} from "@mdi/js";
+} from '@mdi/js'
 
 export default Vue.extend({
-  name: "App",
+  name: 'App',
   components: {
     HelloWorld,
     NavigationDrawer,
@@ -129,8 +130,8 @@ export default Vue.extend({
   props: {},
   data: () => ({
     isLoggedIn: false, // from store
-    currentAwsRegion: "eu-west-1", // from store
-    awsRegions: ["eu-west-1", "eu-central-1"], // from store
+    currentAwsRegion: 'eu-west-1', // from store
+    awsRegions: ['eu-west-1', 'eu-central-1'], // from store
     dialog: false,
     drawer: null,
     menu: false,
@@ -146,22 +147,22 @@ export default Vue.extend({
     },
     signinform: {
       valid: false,
-      awsAccessKeyRules: [(v: String) => !!v || "AWS Access Key is required"],
-      awsSecretKeyRules: [(v: String) => !!v || "AWS Secret Key is required"]
+      awsAccessKeyRules: [(v: string) => !!v || 'AWS Access Key is required'],
+      awsSecretKeyRules: [(v: string) => !!v || 'AWS Secret Key is required']
     }
   }),
   methods: {
     submitButtonActions() {
       if (this.$refs.form.validate()) {
-        this.$refs.form.reset();
-        this.menu = false;
+        this.$refs.form.reset()
+        this.menu = false
       }
     },
     cancelButtonActions() {
-      this.$refs.form.reset();
-      this.$refs.form.resetValidation();
-      this.menu = false;
+      this.$refs.form.reset()
+      this.$refs.form.resetValidation()
+      this.menu = false
     }
   }
-});
+})
 </script>
