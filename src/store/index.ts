@@ -1,17 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    // TODO:
-    //  - make work as datasource in toolbar nav
-    //  - save preferences in cookie?
-    //  - get regions from aws config?
-    currentAwsRegion: 'eu-west-1',
-    awsRegions: ['eu-west-1', 'eu-central-1']
-  },
+  state: {},
   mutations: {},
-  actions: {}
-})
+  actions: {},
+  modules: {}
+});
