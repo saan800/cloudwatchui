@@ -32,7 +32,11 @@
                 <v-icon>{{ child.icon }}</v-icon>
               </v-list-item-action>
               <v-list-item-content>
-                <v-list-item-title>{{ child.text }}</v-list-item-title>
+                <v-list-item-title>
+                  <router-link :to="{ name: child.routeName }">{{
+                    child.text
+                  }}</router-link>
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
@@ -41,7 +45,11 @@
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>{{ item.text }}</v-list-item-title>
+              <v-list-item-title>
+                <router-link :to="{ name: item.routeName }">{{
+                  item.text
+                }}</router-link>
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </template>
@@ -51,7 +59,7 @@
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app class="primary">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">Heading</span>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -153,34 +161,42 @@ export default {
     dialog: false,
     drawer: null,
     items: [
-      { icon: 'mdi-contacts', text: 'Contacts' },
-      { icon: 'mdi-history', text: 'Frequently contacted' },
-      { icon: 'mdi-content-copy', text: 'Duplicates' },
+      { icon: 'mdi-home', text: 'Home', routeName: 'Home' },
+      { icon: 'mdi-history', text: 'About', routeName: 'About' },
+      { icon: 'mdi-content-copy', text: 'Duplicates', routeName: 'Other' },
       {
         icon: 'mdi-chevron-up',
         'icon-alt': 'mdi-chevron-down',
         text: 'Labels',
+        routeName: 'Other',
         model: true,
-        children: [{ icon: 'mdi-plus', text: 'Create label' }]
+        children: [
+          { icon: 'mdi-plus', text: 'Create label', routeName: 'Other' }
+        ]
       },
       {
         icon: 'mdi-chevron-up',
         'icon-alt': 'mdi-chevron-down',
         text: 'More',
+        routeName: 'Other',
         model: false,
         children: [
-          { text: 'Import' },
-          { text: 'Export' },
-          { text: 'Print' },
-          { text: 'Undo changes' },
-          { text: 'Other contacts' }
+          { text: 'Import', routeName: 'Other' },
+          { text: 'Export', routeName: 'Other' },
+          { text: 'Print', routeName: 'Other' },
+          { text: 'Undo changes', routeName: 'Other' },
+          { text: 'Other contacts', routeName: 'Other' }
         ]
       },
-      { icon: 'mdi-cog', text: 'Settings' },
-      { icon: 'mdi-message', text: 'Send feedback' },
-      { icon: 'mdi-help-circle', text: 'Help' },
-      { icon: 'mdi-cellphone-link', text: 'App downloads' },
-      { icon: 'mdi-keyboard', text: 'Go to the old version' }
+      { icon: 'mdi-cog', text: 'Settings', routeName: 'Other' },
+      { icon: 'mdi-message', text: 'Send feedback', routeName: 'Other' },
+      { icon: 'mdi-help-circle', text: 'Help', routeName: 'Other' },
+      { icon: 'mdi-cellphone-link', text: 'App downloads', routeName: 'Other' },
+      {
+        icon: 'mdi-keyboard',
+        text: 'Go to the old version',
+        routeName: 'Other'
+      }
     ]
   })
 }

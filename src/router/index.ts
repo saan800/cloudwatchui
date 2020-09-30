@@ -20,6 +20,11 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/404',
+    name: 'Other',
+    component: () => import(/* webpackChunkName: "errors" */ '../views/404.vue')
+  },
+  {
     path: '*',
     name: '404',
     component: () => import(/* webpackChunkName: "errors" */ '../views/404.vue')
